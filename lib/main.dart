@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nots_app/views/nots_view.dart';
 
 void main() {
   runApp(const NotsApp());
@@ -7,8 +8,12 @@ void main() {
 class NotsApp extends StatelessWidget {
   const NotsApp({super.key});
 
-  @override
+    @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+    theme: ThemeData(brightness: Brightness.dark),
+      home: const NotsView(),
+    );
   }
 }
