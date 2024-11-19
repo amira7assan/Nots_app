@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nots_app/Widgets/CustomAppPar.dart';
 import 'package:nots_app/Widgets/CustomNotsIteam.dart';
+import 'package:nots_app/Widgets/NotsListView.dart';
 class NotsViewBody extends StatelessWidget {
   const NotsViewBody({super.key});
 
@@ -14,9 +15,11 @@ class NotsViewBody extends StatelessWidget {
             height: 50,
           ),
           CustomAppPar(),
-          NoteItem(),
+         Expanded(child:  NotsListView(),),
         ],
       ),
     );
   }
 }
+
+
