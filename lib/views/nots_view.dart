@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:nots_app/Widgets/CustomNotsIteam.dart';
 import 'package:nots_app/Widgets/NotsViewBody.dart';
-
+import 'package:nots_app/Widgets/AddNoteButtomSheet.dart';
 class NotsView extends StatelessWidget {
   const NotsView({super.key});
 
@@ -9,8 +9,12 @@ class NotsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.blueGrey, // Set the background color here
+        onPressed: () {
+          showModalBottomSheet(context: context, builder: (context){
+            return const AddNoteButtomSheet();
+          });
+        },
+        backgroundColor: Colors.blueGrey, 
         child: Icon(
           Icons.add,
           color: Colors.white, // Icon color
