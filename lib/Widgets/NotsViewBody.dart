@@ -13,7 +13,7 @@ class NotsViewBody extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          CustomAppPar(),
+          CustomAppPar(title: 'Notes', icon: Icons.search,),
          Expanded(child:  NotsListView(),),
         ],
       ),
