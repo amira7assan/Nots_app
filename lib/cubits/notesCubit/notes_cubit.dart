@@ -8,17 +8,10 @@ part 'notes_state.dart';
 
 class NotsCubit extends Cubit<NotsState> {
   NotsCubit() : super(NotsInitial());
-
+List<NoteModel>?notes;
   fetchAllNotes()async{
-    try{
       var notsBox = Hive.box<NoteModel>(KNotesBox);
      List<NoteModel>notes= notsBox.values.toList();
-      emit(NotsSuccess(notes));
-    }
-    catch(e)
-    {
-      emit(NotsFailure(e.toString()));
-    }
   }
   }
 
