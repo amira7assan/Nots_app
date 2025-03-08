@@ -5,13 +5,22 @@ import 'package:nots_app/Widgets/const.dart';
 import 'package:nots_app/models/noteModel.dart';
 
 part 'notes_state.dart';
-
 class NotsCubit extends Cubit<NotsState> {
-  NotsCubit() : super(NotsInitial());
-List<NoteModel>?notes;
-  fetchAllNotes()async{
-      var notsBox = Hive.box<NoteModel>(KNotesBox);
-     List<NoteModel>notes= notsBox.values.toList();
-  }
+  NotsCubit() : super(NotsInitial()) {
+    fetchAllNotes(); // Load notes when cubit is created
   }
 
+  List<NoteModel> notes = [];
+
+  void fetchAllNotes() {
+    var notesBox = Hive.box<NoteModel>(KNotesBox);
+    notes = notesBox.values.toList();
+    emit(NotsLoaded(notes));
+  }
+
+  void addNote(NoteModel note) async {
+    var notesBox = Hive.box<NoteModel>(KNotesBox);
+    await notesBox.add(note);
+    fetchAllNotes();
+  }
+}
