@@ -37,7 +37,9 @@ final NoteModel note;
                 ),
                 ),
               ),
-              trailing: IconButton(onPressed: (){},
+              trailing: IconButton(onPressed: (){
+                note.delete();
+              },
               icon: const Icon(Icons.delete,color: Colors.black,size: 30,),),
             ),
           Padding(
