@@ -4,6 +4,8 @@ import 'package:nots_app/Widgets/EditeNoteViewBody.dart';
 import 'package:nots_app/cubits/notesCubit/notes_cubit.dart';
 import 'package:nots_app/models/noteModel.dart';
 
+import '../views/Edite View.dart';
+
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.note});
 final NoteModel note;
@@ -12,7 +14,9 @@ final NoteModel note;
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context){
-        return const EditeNoteViewBody();
+        return EditeNoteView(
+            note: note,
+        );
         }));
       },
       child: Container(
